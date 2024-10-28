@@ -1,0 +1,49 @@
+Here is my story of installing manim community version.
+
+Operation system: Ubuntu 22.4 LTS
+
+I've installed manim locally as a python library.
+
+Following the installation tutorial (https://docs.manim.community/en/stable/installation/linux.html#required-dependencies)
+I did:
+
+$ sudo apt update
+$ sudo apt install build-essential python3-dev libcairo2-dev libpango1.0-dev ffmpeg
+
+which worked just fine.
+
+I already had python and pip installed, so I skipped the line
+
+$ sudo apt install python3-pip
+
+Eventually I got to line
+
+$ pip install manim
+
+which got me an "unable ot locate package" error.
+
+The solution to this (at least for me) can be configuring a virtual environment.
+
+The best description I found is this one (https://packaging.python.org/en/latest/tutorials/installing-packages/)
+All I ahd to do was:
+
+$ python3 -m venv <DIR>
+$ source <DIR>/bin/activate
+
+After doing this virtual environment is being activated which is shown in the beginning of the command line:
+
+(<env_name>) $ 
+
+Now simple
+
+(<env_name>) $ pip3 install manim
+
+worked like a charm.
+
+Now to operate with manim in the interactive mode from command line you call
+
+(<env_name) $ manim -p --renderer=opengl path/to/file.py <SceneName>
+
+For more information I found useful this tutorial (https://www.aquabeam.me/manim/opengl_guide/)
+as well as (https://docs.manim.community/en/stable/tutorials/quickstart.html)
+
